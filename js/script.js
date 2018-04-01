@@ -14,10 +14,11 @@ function getRandomColor() {
 // selects a random quote object from the quotes array
 // returns the randomly selected quote object
 function getRandomQuote() {
-  return Math.floor(Math.random() * quotes.length);
+  var randomQuoteIndex = Math.floor(Math.random() * quotes.length);
+  return quotes[randomQuoteIndex];
 }
 
-// sets the background color
+// sets the background colors
 var oldColor;
 function setBgColor() {
   var randomColorIndex = getRandomColor();
@@ -33,8 +34,7 @@ function setBgColor() {
 // doesn't add a <span class="citation"> for a missing citation or a <span class="year"> if the year property is missing
 // displays the final HTML string to the page
 function printQuote() {
-  var randomQuoteIndex = getRandomQuote();
-  var randomQuote = quotes[randomQuoteIndex];
+  var randomQuote = getRandomQuote();
   var htmlString =
     '<p class="quote">' + randomQuote['quote'] + '</p>' +
     '<p class="source">' + randomQuote['source'];
